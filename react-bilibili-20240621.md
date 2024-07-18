@@ -67,11 +67,17 @@ HOC 是一个纯函数，没有副作用
 ahooks 的使用
 
 1. useState  组件内部的变量，想改变一个值时，会触发组件的更新，重新 render
+  作用：用于在函数组件中添加状态。
 2. useRef    不会触发组件的更新，可以进行手动修改
+  
 3. useEffect 在某些时间点触发一些方法，如果第二个参数的数组为空，相当于初始化的时候执行一次，返回的结果用于清除副作用，useEffect 不能直接用 async【组件更新挂载完成之后 => DOM 更新 => useEffect】会有闪动
+  作用：用于在函数组件中执行副作用操作
 4. useLayoutEffect      【组件更新挂载完成之后 => useLayoutEffect=> DOM 更新 => useEffect】会有卡顿现象
 5. useContext       传递上下文，结合 redux 外层提供，里面包裹的组件消费
+  作用：用于在组件树中共享状态
 6. useReducer       state,action,dispatch 结合 redux,context,provider,comsumer 一同来实现数据共享
+  
 7. useMemo      返回函数运行的结果 || 若父组件更新了，子组件也会重新渲染，但其实子组件并没有更新，所以这种更新是没有必要的，useMemo 可以实现计算复杂数据缓存的作用
+  作用：用于优化性能，通过缓存计算结果来避免不必要的计算
 8. useCallback  返回的是cb的函数
 
